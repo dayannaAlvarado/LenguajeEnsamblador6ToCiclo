@@ -1,0 +1,20 @@
+add  dword [n1+1], [n2+1];para sumar directo dos variables
+-->para transformar de numero a cadena se suma  cero"0"--> registro,'0'
+-->para transformar de cadena a numero se resta  cero"0"--> registro,'0'
+-->GIT:rene525456
+
+jmp--> instruccion de salto  etiqueta
+etiqueta--> posicion en memoria--- no es una instruccion
+	tipos de saltos
+saltos condicionales
+saltos no condicionales
+loop--> establecer ciclos
+call--> llamada de subrutina
+
+INSTRUCCIONES
+cmp-----compare
+
+COMPARADORES
+Je-> comparador de igualdad n==n se activa la bandera del 0 
+
+

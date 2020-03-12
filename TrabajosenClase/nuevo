@@ -1,0 +1,59 @@
+%macro escribir 2
+	mov eax,4
+	mov ebx,1
+	mov ecx,%1
+	mov edx,%2
+	int 80h
+%endmacro
+
+
+section .data
+	msjn db "Ingrese el  numero de 1-9: " 
+	lenmsjn equ $-msjn
+	msj db "El numero ingresado no esta en el rango de  1-9: " 
+	lenmsj equ $-msj	
+	msjprimo db "El numero ingresado es primo",10
+	lenmsjprimo equ $-msjprimo
+	msjnprimo db "El numero ingresado no es primo",10 
+	lenmsjnprimo equ $-msjnprimo
+
+
+section .text
+	global _start
+_start:
+	 
+	mov al,5
+	mov bl,5
+	mov cx,0
+	
+ciclo:	
+	cmp bl,0
+	jz imprimir
+	jmp proceso
+proceso:
+	div bl
+	dec bl
+	cmp ah,0
+	jz cero
+	jnz ciclo
+	
+cero:
+	inc cx
+	jmp ciclo
+
+		
+imprimir:
+	cmp cx,2
+	jle primo
+	jnle noprimo
+primo:
+	escribir msjprimo,lenmsjprimo
+	jmp salir
+
+noprimo:
+	escribir msjnprimo,lenmsjnprimo
+	jmp salir
+		
+salir:
+	mov eax,1
+	int 80h
